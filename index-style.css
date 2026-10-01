@@ -1,0 +1,212 @@
+:root {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #202b28;
+    background: #f3f5f1;
+    --accent: #24634d;
+    --border: #dbe3db;
+    --muted: #69766e;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: min(100% - 48px, 1000px);
+    margin: 0 auto;
+    padding: 64px 0;
+}
+
+/* A simple accent above the page title. */
+body > div:first-child::before {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 5px;
+    border-radius: 4px;
+    background: var(--accent);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(32px, 5vw, 46px);
+    line-height: 1.15;
+    letter-spacing: -1.6px;
+    margin: 0 0 32px;
+    font-weight: 750;
+}
+
+/* Routine details */
+#workout-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 4px 18px #263d2810;
+}
+
+input, textarea, button {
+    font: inherit;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px 16px;
+    border: 1px solid #cbd5cc;
+    border-radius: 10px;
+    color: inherit;
+    background: #fafbf9;
+    transition: border-color 150ms, box-shadow 150ms;
+}
+
+input {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+textarea {
+    min-height: 110px;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--muted);
+    opacity: 1;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px #24634d15;
+}
+
+/* Exercise panels share equal space on larger screens. */
+#exercise-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+    align-items: start;
+}
+
+#exercise-list-container, #chosen-exercise-container {
+    min-height: 310px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 4px 18px #263d2808;
+}
+
+#chosen-exercise-container {
+    background: #eaf1e8;
+    border-color: #cbdac9;
+}
+
+h2 {
+    margin: 0 0 20px;
+    font-size: 18px;
+    font-weight: 650;
+    letter-spacing: -.3px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+li:first-child {
+    padding-top: 0;
+}
+
+li:last-child {
+    border-bottom: 0;
+}
+
+li span {
+    min-width: 0;
+    font-size: 15px;
+    font-weight: 550;
+    overflow-wrap: anywhere;
+}
+
+/* :has also handles the whitespace inside the initially empty list. */
+#chosen-exercise-list:not(:has(li)) {
+    min-height: 205px;
+    border: 1px dashed #b7cbb5;
+    border-radius: 12px;
+    background: #ffffff40;
+}
+
+/* These selectors also style the Remove buttons created by JavaScript. */
+button {
+    min-height: 44px;
+    padding: 10px 18px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 650;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color 150ms, border-color 150ms, box-shadow 150ms;
+}
+
+.add-button {
+    color: var(--accent);
+    background: #edf4ec;
+    border-color: #d6e4d3;
+}
+
+.remove-button {
+    color: #9b3939;
+    background: #fff8f6;
+    border-color: #e9d6cf;
+}
+
+#save-button {
+    display: block;
+    margin: 28px 0 0 auto;
+    padding: 14px 40px;
+    font-size: 16px;
+    color: #fff;
+    background: var(--accent);
+    box-shadow: 0 4px 10px #24634d20;
+}
+
+@media (hover: hover) {
+    .add-button:hover { background: #dcebd8; border-color: #adc8a9; }
+    .remove-button:hover { background: #fae6e0; border-color: #d5b5ac; }
+    #save-button:hover { background: #184d3a; box-shadow: 0 6px 16px #24634d30; }
+}
+
+:focus-visible {
+    outline: 3px solid #397cbd;
+    outline-offset: 4px;
+}
+
+@media (max-width: 640px) {
+    body { width: calc(100% - 32px); padding: 32px 0; }
+    h1 { margin-bottom: 24px; }
+    #workout-details-container { padding: 20px; }
+    #exercise-container { grid-template-columns: 1fr; gap: 16px; margin-top: 16px; }
+    #exercise-list-container, #chosen-exercise-container { padding: 20px; min-height: auto; }
+    #chosen-exercise-list:not(:has(li)) { min-height: 140px; }
+    #save-button { width: 100%; margin-top: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    input, textarea, button { transition: none; }
+}

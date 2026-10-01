@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Creation</title>
+    <link rel="stylesheet" href="index-style.css">
+    <script src="index-script.js" defer></script>
+</head>
+<body>
+    <div>
+        <h1>Create a routine</h1>
+    </div>
+    <div id="workout-details-container">
+        <input type="text" name="workout-name" placeholder="Workout Name">
+        <textarea name="workout-description" placeholder="Description (optional)"></textarea>
+    </div>
+    <div id="exercise-container">
+        <div id="exercise-list-container">
+            <h2>List of Exercises</h2>
+            <ul>
+                <li> <span>Bench Press</span> <button class="add-button">Add</button></li>
+                <li> <span>Squat</span> <button class="add-button">Add</button></li>
+                <li> <span>Deadlift</span> <button class="add-button">Add</button></li>
+            </ul>
+        </div>
+        <div id="chosen-exercise-container">
+            <h2>Chosen Exercises</h2>
+            <ul id="chosen-exercise-list">
+
+            </ul>
+        </div>
+    </div>
+    <button id="save-button">Save</button>
+</body>
+</html>
