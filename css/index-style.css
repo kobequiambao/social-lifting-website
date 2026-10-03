@@ -143,6 +143,30 @@ li span {
     overflow-wrap: anywhere;
 }
 
+#chosen-exercise-list li {
+    flex-wrap: wrap;
+}
+
+#chosen-exercise-list li span {
+    flex: 1 1 140px;
+}
+
+#chosen-exercise-list input[type="number"] {
+    width: 72px;
+    flex: 0 0 72px;
+    padding: 10px 8px;
+    font-size: 14px;
+    text-align: center;
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+#chosen-exercise-list input[type="number"]::-webkit-inner-spin-button,
+#chosen-exercise-list input[type="number"]::-webkit-outer-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+}
+
 /* :has also handles the whitespace inside the initially empty list. */
 #chosen-exercise-list:not(:has(li)) {
     min-height: 205px;
